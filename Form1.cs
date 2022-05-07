@@ -7,4 +7,6 @@ namespace Tp1_PlataformasDesarrollo
             InitializeComponent();
         }
     }
+    
+
 }
