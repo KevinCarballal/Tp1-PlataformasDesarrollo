@@ -10,7 +10,7 @@ namespace Tp1_PlataformasDesarrollo
     public class Usuario
     {
         
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "El campo{0} es requerido")]
         [MinLength(7, ErrorMessage = "El campo{0} admite un mínimo de {1} caracteres")]
@@ -42,10 +42,16 @@ namespace Tp1_PlataformasDesarrollo
         public bool Bloqueado { get; set; }
 
         public Usuario() { }
-        public Usuario(string Nombre, string Pass)
+        public Usuario(int id,string nombre, string apellido, string dni, string pass, string mail)
         {
-            Nombre = Nombre;
-            Password = Pass;
+            Id = id;    
+            Nombre = nombre;
+            Apellido = apellido;
+            Dni = dni;
+            
+            Password = pass;
+            Email = mail;
+
         }
 
         public List<Usuario> Amigos { get; set; }
@@ -56,6 +62,6 @@ namespace Tp1_PlataformasDesarrollo
 
         public List<Reaccion> MisReacciones { get; set; }
 
-        
+       
     }
 }

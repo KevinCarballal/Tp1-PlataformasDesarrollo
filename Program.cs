@@ -8,6 +8,8 @@ namespace Tp1_PlataformasDesarrollo
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("hola"); Console.Write("hola");
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
