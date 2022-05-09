@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,41 +12,50 @@ namespace Tp1_PlataformasDesarrollo
 {
     public partial class Form1 : Form
     {
-        private RedSocial miRed;
+     
         
+
+        private RedSocial redSocial;
+        private Usuario usuario;
+        
+
         public Form1()
         {
+
             InitializeComponent();
-            miRed = new RedSocial();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (miRed.iniciarSesion(textBox1.Text, textBox2.Text))
-            {
-                label3.Text = "Inicio de sesión: OK";
-            }
-            else
-            {
-                label3.Text = "Inicio de sesión: NO";
-            }
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            Form2 frm = new Form2();
-
-            frm.Show();
+            redSocial = new RedSocial();
            
-            /*Usuario Aux = new Usuario(textBox1.Text, textBox2.Text);
-            miRed.agregarUsuario(textBox1.Text, textBox2.Text);
-            miRed.agregarUsuario(Aux);
-            Aux.Password = "";*/
+     
+            
+
+        }
+        private void TransfDelegado(Usuario Aux)
+        {
+            this.usuario = Aux;
+           
+
+        }
+
+
+        private void iniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form2 hijoLogin = new Form2();
+            hijoLogin.MdiParent = this;
+            hijoLogin.Show();
+        }
+
+        private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 hijoRegistrar = new Form3(new string[] { "hola" });
+            
+            hijoRegistrar.MdiParent = this;
+            hijoRegistrar.Show();
+
         }
     }
+
+    }
+
+    
     
 
-}

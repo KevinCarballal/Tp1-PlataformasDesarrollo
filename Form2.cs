@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,28 +12,49 @@ namespace Tp1_PlataformasDesarrollo
 {
     public partial class Form2 : Form
     {
-        private RedSocial miRed;
-        public Form2()
+        private RedSocial red;
+        public List<Form2> usuarios;
+        Form3 hijoRegistrar;
+        public string[] argumentos;
+        public delegate void TransfDelegado(string usuario);
+
+
+
+        public Form2(RedSocial redSocial)
         {
             InitializeComponent();
-            miRed = new RedSocial();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Usuario Aux = new Usuario(0,textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
-            //miRed.agregarUsuario(0,textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
-            miRed.agregarUsuario(Aux);
-            Aux.Password = "";
+            this.red = redSocial;   
             
-            this.Hide();
-
-            Form1 frm = new Form1();
-
-            frm.Show();
-
-           
+       
         }
+        public Form2(string[] args)
+        {
+            InitializeComponent();
+            argumentos = args;
+            label4.Text = args[0];
+
+
+        }
+
+        public Form2()
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (red.iniciarSesion(textBox1.Text, textBox2.Text))
+            {
+                label3.Text = "Inicio de sesión: OK";
+            }
+            else
+            {
+                label3.Text = "Inicio de sesión: NO";
+            }
+            
+        }
+
+        
     }
+    
 
 }

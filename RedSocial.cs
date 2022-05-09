@@ -17,8 +17,8 @@ namespace Tp1_PlataformasDesarrollo
 
         public RedSocial()
         {
-            usuarios = new List<Usuario>();
-            IdUsuarios = 0;
+           usuarios = new List<Usuario>();
+           IdUsuarios = 0;
 
         }
 
@@ -37,8 +37,8 @@ namespace Tp1_PlataformasDesarrollo
         public void agregarUsuario(Usuario user)
         {
             
-            //Usuario otro = new Usuario(user.Id, user.Nombre, user.Email, user.Dni, user.Apellido, user.Password);
-            usuarios.Add(user);
+            Usuario otro = new Usuario(user.Id, user.Nombre, user.Apellido,  user.Email, user.Password, user.Dni);
+            usuarios.Add(otro);
             IdUsuarios++;
             user.Id = IdUsuarios;
             
@@ -51,8 +51,9 @@ namespace Tp1_PlataformasDesarrollo
         public bool iniciarSesion(string usuario, string pass)
         {
             bool encontre = false;
-            //MessageBox.Show(usuario, pass);
             MessageBox.Show(usuarios.Count.ToString());
+            MessageBox.Show(usuario, pass);
+
             foreach (Usuario user in usuarios)
             {
                 if (user.Nombre.Equals(usuario) && user.Password.Equals(pass))
@@ -61,8 +62,8 @@ namespace Tp1_PlataformasDesarrollo
                     encontre = true;
                     usuarioLogged = user;
                 }
-                
             }
+                
             return encontre;
         }
         public List<Usuario> obtenerUsuarios()
