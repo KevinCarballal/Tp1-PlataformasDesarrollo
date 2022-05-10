@@ -12,13 +12,15 @@ namespace Tp1_PlataformasDesarrollo
 {
     public partial class Form2 : Form
     {
+        
+      
         private RedSocial red;
         public List<Form2> usuarios;
         Form3 hijoRegistrar;
-        public string[] argumentos;
-        public string dato;
-        public TransfDelegado TrasfEvento;
-        public delegate void TransfDelegado(string usuario);
+       
+        public delegate void pasarLogin(Usuario usuario);
+        public pasarLogin pasadoLogin;
+
 
 
 
@@ -28,12 +30,12 @@ namespace Tp1_PlataformasDesarrollo
             this.red = redSocial;          
         }
 
-        public Form2(string dato)
+        public Form2(Usuario user)
         {
             InitializeComponent();
-            this.dato = dato;
-            label3.Text = this.dato;
-            MessageBox.Show(this.dato);
+            
+            label3.Text = user.Nombre;
+            
             
             
         }
@@ -46,6 +48,9 @@ namespace Tp1_PlataformasDesarrollo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            
+
             if (red.iniciarSesion(textBox1.Text, textBox2.Text))
             {
                 label3.Text = "Inicio de sesión: OK";

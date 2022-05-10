@@ -16,8 +16,11 @@ namespace Tp1_PlataformasDesarrollo
         public List<Form3> usuarios;
         
         public string[] argumentos;
-        public delegate void TransfDelegado(string user);
+        public delegate void TransfDelegado(string dato);
         public TransfDelegado TrasfEvento;
+
+        public delegate void pasarUsuario(Usuario usuario);
+        public pasarUsuario pasado;
 
         /*public Form3(string[] args)
         {
@@ -27,11 +30,12 @@ namespace Tp1_PlataformasDesarrollo
             miRed = new RedSocial();
            
         }*/
-        public Form3(string Usuario)
+        public Form3(Usuario user, RedSocial red)
         {
             InitializeComponent();
             
             miRed = new RedSocial();
+
 
         }       
 
@@ -43,7 +47,9 @@ namespace Tp1_PlataformasDesarrollo
 
             Aux.Password = "";
 
-            this.TrasfEvento("FORM 3 A FORM1");
+            //this.TrasfEvento("FORM 3 A FORM1");
+
+            this.pasado(Aux);
 
             this.Hide();
 

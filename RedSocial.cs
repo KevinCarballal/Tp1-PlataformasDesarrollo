@@ -34,7 +34,7 @@ namespace Tp1_PlataformasDesarrollo
 
         }*/
 
-        public void agregarUsuario(Usuario user)
+        public void agregarUsuario( Usuario user)
         {
             
             Usuario otro = new Usuario(user.Id, user.Nombre, user.Apellido,  user.Email, user.Password, user.Dni);
@@ -60,11 +60,12 @@ namespace Tp1_PlataformasDesarrollo
                 {
                     
                     encontre = true;
-                    usuarioLogged = user;
+                    
                 }
+                return encontre;
             }
-                
             return encontre;
+
         }
         public List<Usuario> obtenerUsuarios()
         {

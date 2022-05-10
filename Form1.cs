@@ -30,31 +30,46 @@ namespace Tp1_PlataformasDesarrollo
             
 
         }
-        private void TransfDelegado(string Usuario)
+        private void TransfDelegado(string dato)
         {
+            this.dato = dato;
+            
+            label4.Text = dato;
 
-            this.dato = Usuario;
+        }
 
-            MessageBox.Show(this.dato);
+        private void pasarUsuario(Usuario user)
+        {
+            this.usuario = user;
+
+            MessageBox.Show(user.Nombre, user.Password);
+
+        }
+
+        private void pasarLogin(Usuario user)
+        {
+            this.usuario = user;
+
+            MessageBox.Show(user.Nombre, user.Password);
 
         }
 
 
         private void iniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form2 hijoLogin = new Form2(this.dato);
+            Form2 hijoLogin = new Form2(usuario);
             hijoLogin.MdiParent = this;
-            hijoLogin.TrasfEvento += TransfDelegado;
+            hijoLogin.pasadoLogin += pasarLogin;
 
             hijoLogin.Show();
         }
 
         private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 hijoRegistrar = new Form3("hola");
+            Form3 hijoRegistrar = new Form3(usuario, redSocial);
             
             hijoRegistrar.MdiParent = this;
-            hijoRegistrar.TrasfEvento += TransfDelegado;
+            hijoRegistrar.pasado += pasarUsuario;
             hijoRegistrar.Show();
 
         }
