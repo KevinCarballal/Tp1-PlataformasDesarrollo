@@ -22,8 +22,6 @@ namespace Tp1_PlataformasDesarrollo
         public pasarLogin pasadoLogin;
 
 
-
-
         public Form2(RedSocial redSocial)
         {
             InitializeComponent();
@@ -34,10 +32,7 @@ namespace Tp1_PlataformasDesarrollo
         {
             InitializeComponent();
             
-            label3.Text = user.Nombre;
-            
-            
-            
+            label3.Text = user.Nombre;            
         }
 
 
@@ -48,10 +43,7 @@ namespace Tp1_PlataformasDesarrollo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            
-
-            if (red.iniciarSesion(textBox1.Text, textBox2.Text))
+            if (red.iniciarSesion(this.textBox1.Text, this.textBox2.Text))
             {
                 label3.Text = "Inicio de sesión: OK";
             }
@@ -59,7 +51,6 @@ namespace Tp1_PlataformasDesarrollo
             {
                 label3.Text = "Inicio de sesión: NO";
             }
-            
         }
 
         

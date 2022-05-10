@@ -12,9 +12,6 @@ namespace Tp1_PlataformasDesarrollo
 {
     public partial class Form1 : Form
     {
-     
-        
-
         private RedSocial redSocial;
         private Usuario usuario;
         private string dato;
@@ -41,23 +38,20 @@ namespace Tp1_PlataformasDesarrollo
         private void pasarUsuario(Usuario user)
         {
             this.usuario = user;
-
-            MessageBox.Show(user.Nombre, user.Password);
-
+            this.redSocial.agregarUsuario(this.usuario);
         }
 
         private void pasarLogin(Usuario user)
         {
             this.usuario = user;
 
-            MessageBox.Show(user.Nombre, user.Password);
-
+            this.redSocial.agregarUsuario(this.usuario);
         }
 
 
         private void iniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form2 hijoLogin = new Form2(usuario);
+            Form2 hijoLogin = new Form2(this.redSocial);
             hijoLogin.MdiParent = this;
             hijoLogin.pasadoLogin += pasarLogin;
 

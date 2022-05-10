@@ -42,12 +42,7 @@ namespace Tp1_PlataformasDesarrollo
         private void button1_Click_1(object sender, EventArgs e)
         {
             Usuario Aux = new Usuario(0, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
-            //miRed.agregarUsuario(0,textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
             miRed.agregarUsuario(Aux);
-
-            Aux.Password = "";
-
-            //this.TrasfEvento("FORM 3 A FORM1");
 
             this.pasado(Aux);
 

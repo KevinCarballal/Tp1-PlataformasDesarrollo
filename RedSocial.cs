@@ -41,28 +41,19 @@ namespace Tp1_PlataformasDesarrollo
             usuarios.Add(otro);
             IdUsuarios++;
             user.Id = IdUsuarios;
-            
-            MessageBox.Show(usuarios[0].Nombre);
-            MessageBox.Show(usuarios[0].Password);
-            MessageBox.Show(usuarios.Count.ToString());
-
-
+           
         }
         public bool iniciarSesion(string usuario, string pass)
         {
             bool encontre = false;
-            MessageBox.Show(usuarios.Count.ToString());
-            MessageBox.Show(usuario, pass);
 
             foreach (Usuario user in usuarios)
             {
                 if (user.Nombre.Equals(usuario) && user.Password.Equals(pass))
                 {
-                    
                     encontre = true;
-                    
+                    break;
                 }
-                return encontre;
             }
             return encontre;
 
