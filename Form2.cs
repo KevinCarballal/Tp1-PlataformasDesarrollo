@@ -16,6 +16,8 @@ namespace Tp1_PlataformasDesarrollo
         public List<Form2> usuarios;
         Form3 hijoRegistrar;
         public string[] argumentos;
+        public string dato;
+        public TransfDelegado TrasfEvento;
         public delegate void TransfDelegado(string usuario);
 
 
@@ -23,21 +25,23 @@ namespace Tp1_PlataformasDesarrollo
         public Form2(RedSocial redSocial)
         {
             InitializeComponent();
-            this.red = redSocial;   
-            
-       
+            this.red = redSocial;          
         }
-        public Form2(string[] args)
+
+        public Form2(string dato)
         {
             InitializeComponent();
-            argumentos = args;
-            label4.Text = args[0];
-
-
+            this.dato = dato;
+            label3.Text = this.dato;
+            MessageBox.Show(this.dato);
+            
+            
         }
+
 
         public Form2()
         {
+            InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)

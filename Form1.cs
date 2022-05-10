@@ -17,6 +17,7 @@ namespace Tp1_PlataformasDesarrollo
 
         private RedSocial redSocial;
         private Usuario usuario;
+        private string dato;
         
 
         public Form1()
@@ -29,26 +30,31 @@ namespace Tp1_PlataformasDesarrollo
             
 
         }
-        private void TransfDelegado(Usuario Aux)
+        private void TransfDelegado(string Usuario)
         {
-            this.usuario = Aux;
-           
+
+            this.dato = Usuario;
+
+            MessageBox.Show(this.dato);
 
         }
 
 
         private void iniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form2 hijoLogin = new Form2();
+            Form2 hijoLogin = new Form2(this.dato);
             hijoLogin.MdiParent = this;
+            hijoLogin.TrasfEvento += TransfDelegado;
+
             hijoLogin.Show();
         }
 
         private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 hijoRegistrar = new Form3(new string[] { "hola" });
+            Form3 hijoRegistrar = new Form3("hola");
             
             hijoRegistrar.MdiParent = this;
+            hijoRegistrar.TrasfEvento += TransfDelegado;
             hijoRegistrar.Show();
 
         }

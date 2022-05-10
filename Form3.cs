@@ -16,40 +16,39 @@ namespace Tp1_PlataformasDesarrollo
         public List<Form3> usuarios;
         
         public string[] argumentos;
-        public delegate void TransfDelegado(Usuario usuarios);
+        public delegate void TransfDelegado(string user);
         public TransfDelegado TrasfEvento;
 
-        public Form3(string[] args)
+        /*public Form3(string[] args)
         {
             InitializeComponent();
             argumentos = args;
             label7.Text = args[0];
             miRed = new RedSocial();
            
-        }
-        public Form3()
+        }*/
+        public Form3(string Usuario)
         {
             InitializeComponent();
             
             miRed = new RedSocial();
 
-        }
+        }       
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            Usuario Aux = new Usuario(0,textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
+            Usuario Aux = new Usuario(0, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
             //miRed.agregarUsuario(0,textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
             miRed.agregarUsuario(Aux);
-            
+
             Aux.Password = "";
-            
-            
+
+            this.TrasfEvento("FORM 3 A FORM1");
+
             this.Hide();
 
             Form1 frm = new Form1();
-            
+
             frm.Show();
         }
     }
