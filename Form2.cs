@@ -16,10 +16,14 @@ namespace Tp1_PlataformasDesarrollo
       
         private RedSocial red;
         public List<Form2> usuarios;
-        Form3 hijoRegistrar;
+  
+        
+        
        
         public delegate void pasarLogin(Usuario usuario);
         public pasarLogin pasadoLogin;
+        public delegate void abriendoAmigos();
+        public abriendoAmigos abriendo;
 
 
         public Form2(RedSocial redSocial)
@@ -46,7 +50,25 @@ namespace Tp1_PlataformasDesarrollo
             if (red.iniciarSesion(this.textBox1.Text, this.textBox2.Text))
             {
                 label3.Text = "Inicio de sesión: OK";
+
+                
+                this.Hide();
+
+                
+                Form4 abrirAmigos = new Form4();
+                
+                abrirAmigos.Show();
+
+                Form5 abrirPost = new Form5();
+                
+
+                abrirPost.Show();
+
+
             }
+
+           
+
             else
             {
                 label3.Text = "Inicio de sesión: NO";

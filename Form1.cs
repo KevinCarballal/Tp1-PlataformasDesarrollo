@@ -47,15 +47,32 @@ namespace Tp1_PlataformasDesarrollo
 
             this.redSocial.agregarUsuario(this.usuario);
         }
+        bool logueado = false;
+        private void loguin(bool logueado)
+        {
+
+        }
+
+    
+
+
 
 
         private void iniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form2 hijoLogin = new Form2(this.redSocial);
             hijoLogin.MdiParent = this;
-            hijoLogin.pasadoLogin += pasarLogin;
+
+            Form2 hijoMain = new Form2(this.redSocial);
+            hijoMain.MdiParent = this;
+            hijoMain.pasadoLogin += pasarLogin;
+            
 
             hijoLogin.Show();
+
+            
+            
+
         }
 
         private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,7 +83,11 @@ namespace Tp1_PlataformasDesarrollo
             hijoRegistrar.pasado += pasarUsuario;
             hijoRegistrar.Show();
 
+            
+
         }
+
+
     }
 
     }
